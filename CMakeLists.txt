@@ -4,5 +4,6 @@ project(${PRJ_NAME} CXX)
 
 add_executable(${PRJ_NAME} main.cpp)
 
-target_link_arduino_libraries(${PRJ_NAME} PRIVATE core)
+include_directories("${PROJECT_SOURCE_DIR}/libraries/Adafruit_BusIO")
+target_link_arduino_libraries(${PRJ_NAME} AUTO_PUBLIC)
 target_enable_arduino_upload(${PRJ_NAME})

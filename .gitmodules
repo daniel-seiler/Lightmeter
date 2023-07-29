@@ -1,3 +1,6 @@
 [submodule "Arduino-CMake-Toolchain"]
 	path = Arduino-CMake-Toolchain
 	url = git@github.com:a9183756-gh/Arduino-CMake-Toolchain.git
+[submodule "libs/Adafruit_BusIO"]
+	path = libs/Adafruit_BusIO
+	url = git@github.com:adafruit/Adafruit_BusIO.git
