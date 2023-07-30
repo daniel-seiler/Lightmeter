@@ -1,0 +1,10 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Compile &amp; Upload" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile">
+    <makefile filename="$PROJECT_DIR$/build/Makefile" target="" workingDirectory="$PROJECT_DIR$/build" arguments="upload-lightmeter SERIAL_PORT=/dev/ttyACM0">
+      <envs />
+    </makefile>
+    <method v="2">
+      <option name="ToolBeforeRunTask" enabled="true" actionId="Tool_External Tools_CMake" />
+    </method>
+  </configuration>
+</component>
