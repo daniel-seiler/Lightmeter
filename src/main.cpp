@@ -65,7 +65,7 @@ void loop() {
 
   }
 
-  Serial.print("\n");
+  Serial.print("\r\n");
   delay(200);
 }
 
