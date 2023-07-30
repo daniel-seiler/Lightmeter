@@ -5,7 +5,7 @@
    height="210.0072mm"
    viewBox="0.0000 0.0000 297.0022 210.0072"
    id="svg6508"
-   sodipodi:docname="Lightmeter.svg"
+   sodipodi:docname="schematic.svg"
    inkscape:export-filename="Lightmeter.png"
    inkscape:export-xdpi="500"
    inkscape:export-ydpi="500"
@@ -15,7 +15,24 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
   <defs
-     id="defs6508" />
+     id="defs6508">
+    <linearGradient
+       id="swatch2"
+       inkscape:swatch="solid">
+      <stop
+         style="stop-color:#000000;stop-opacity:0;"
+         offset="0"
+         id="stop2" />
+    </linearGradient>
+    <linearGradient
+       id="swatch1"
+       inkscape:swatch="solid">
+      <stop
+         style="stop-color:#000000;stop-opacity:1;"
+         offset="0"
+         id="stop1" />
+    </linearGradient>
+  </defs>
   <sodipodi:namedview
      id="namedview6508"
      pagecolor="#505050"
@@ -26,9 +43,9 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#505050"
      inkscape:document-units="mm"
-     inkscape:zoom="1.1792169"
-     inkscape:cx="577.50192"
-     inkscape:cy="325.21584"
+     inkscape:zoom="1.6676645"
+     inkscape:cx="685.38964"
+     inkscape:cy="179.59247"
      inkscape:window-width="2560"
      inkscape:window-height="1423"
      inkscape:window-x="0"
@@ -20928,4 +20945,11 @@
        r="0.45719999"
        id="circle6508" />
   </g>
+  <rect
+     style="fill:#840000;fill-opacity:0;stroke:#850000;stroke-width:0.398;stroke-opacity:1;stroke-dasharray:none;stroke-linejoin:round;stroke-linecap:round"
+     id="rect1"
+     width="4.4811349"
+     height="11.235629"
+     x="243.72694"
+     y="40.415382" />
 </svg>
