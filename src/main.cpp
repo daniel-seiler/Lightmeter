@@ -2,6 +2,8 @@
 #include <Wire.h>
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
+#include "bitmap.hpp"
+#include "bitmap_generated.hpp"
 
 #define DEVICE_AMOUNT 4
 #define BUTTON1 0
