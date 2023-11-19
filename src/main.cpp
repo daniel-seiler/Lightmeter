@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include <SPI.h>
 #include <Wire.h>
 #include <Adafruit_GFX.h>
@@ -33,6 +34,11 @@ struct Device{
 };
 
 int photoResRawToPhys(int raw);
+void exposureToString(float exposure, char* buffer);
+void drawScreen(void);
+void drawIso(uint16_t iso);
+void drawT(float t);
+void drawF(float f);
 Device devices[DEVICE_AMOUNT];
 
 void setup() {
@@ -54,9 +60,10 @@ void setup() {
     for(;;);
   }
 
-  display.display();
-  delay(2000);
-  display.clearDisplay();
+  drawScreen();
+  drawIso(iso[1]);
+  drawT(exposureTime[16]);
+  drawF(fNum[2]);
 }
 
 void loop() {
@@ -84,4 +91,71 @@ int photoResRawToPhys(int raw){
   float RLDR = (R * (VIN - Vout))/Vout; // Conversion voltage to resistance
   int phys=500/(RLDR/1000); // Conversion resitance to lumen
   return phys;
+}
+
+void exposureToString(float exposure, char* buffer) {
+    if (0 == (int) exposure) {
+        int denominator = (int) (1 / exposure);
+        sprintf(buffer, "1/%d", denominator);
+    } else {
+        sprintf(buffer, "   %d", (int) (exposure));
+    }
+}
+
+void drawScreen(void) {
+    display.clearDisplay();
+    bitmap::drawGearLeft(&display, bitmap::GEAR_LEFT_X, bitmap::GEAR_LEFT_Y);
+    bitmap::drawGearRight(&display, bitmap::GEAR_RIGHT_X, bitmap::GEAR_RIGHT_Y);
+    bitmap::drawCircleLeft(&display, bitmap::CIRCLE_LEFT_X, bitmap::CIRCLE_LEFT_Y);
+    bitmap::drawCircleRight(&display, bitmap::CIRCLE_RIGHT_X, bitmap::CIRCLE_RIGHT_Y);
+    //bitmap::drawArrowActiveTl(&display, bitmap::ARROW_TL_X, bitmap::ARROW_TL_Y);
+    //bitmap::drawArrowActiveTr(&display, bitmap::ARROW_TR_X, bitmap::ARROW_TR_Y);
+    //bitmap::drawArrowActiveBl(&display, bitmap::ARROW_BL_X, bitmap::ARROW_BL_Y);
+    //bitmap::drawArrowActiveBr(&display, bitmap::ARROW_BR_X, bitmap::ARROW_BR_Y);
+    bitmap::drawArrowInactiveTl(&display, bitmap::ARROW_TL_X, bitmap::ARROW_TL_Y);
+    bitmap::drawArrowInactiveTr(&display, bitmap::ARROW_TR_X, bitmap::ARROW_TR_Y);
+    bitmap::drawArrowInactiveBl(&display, bitmap::ARROW_BL_X, bitmap::ARROW_BL_Y);
+    bitmap::drawArrowInactiveBr(&display, bitmap::ARROW_BR_X, bitmap::ARROW_BR_Y);
+    display.display();
+}
+
+void drawIso(uint16_t iso) {
+    display.setTextSize(1);
+    display.setTextColor(SSD1306_WHITE);
+    if(iso < 1000) {
+        // Set cursor for 3-digit iso
+        display.setCursor(55, 2);
+    } else {
+        // Set cursor for 4-digit iso
+        display.setCursor(52, 2);
+    }
+    display.print(iso);
+    // Draw line over "ISO" text
+    display.drawLine(55, 10, 72, 10, SSD1306_WHITE);
+    display.setCursor(55, 11);
+    display.setTextColor(SSD1306_BLACK, SSD1306_WHITE);
+    display.print("ISO");
+    display.display();
+}
+
+void drawT(float t) {
+    char buffer[7];
+    exposureToString(t, buffer);
+    display.setTextSize(1);
+    display.setTextColor(SSD1306_WHITE);
+    display.setCursor(0, 29);
+    display.print("T");
+    display.setCursor(12, 29);
+    display.print(buffer);
+    display.display();
+}
+
+void drawF(float f) {
+    display.setTextSize(1);
+    display.setTextColor(SSD1306_WHITE);
+    display.setCursor(116, 29);
+    display.print("f/");
+    display.setCursor(85, 29);
+    display.print(f);
+    display.display();
 }
