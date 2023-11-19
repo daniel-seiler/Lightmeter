@@ -19,7 +19,7 @@ namespace bitmap {
     static const PROGMEM uint16_t CIRCLE_RIGHT_X = 112;
     static const PROGMEM uint16_t CIRCLE_RIGHT_Y = 16;
     static const PROGMEM uint16_t CIRCLE_LEFT_X  = 0;
-    static const PROGMEM uint16_t CIRCLE_LEFT_Y  = 16;
+    static const PROGMEM uint16_t CIRCLE_LEFT_Y  = 22;
     static const PROGMEM uint16_t GEAR_RIGHT_X   = 33;
     static const PROGMEM uint16_t GEAR_RIGHT_Y   = 0;
     static const PROGMEM uint16_t GEAR_LEFT_X    = 71;
