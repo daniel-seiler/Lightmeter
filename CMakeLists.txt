@@ -9,8 +9,7 @@ execute_process(
         WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}
 )
 
-file(GLOB_RECURSE SOURCE_FILES src/*.cpp)
-file(GLOB_RECURSE HEADER_FILES include/*.hpp)
+file(GLOB_RECURSE SOURCE_FILES src/*.cpp src/*.hpp)
 add_executable(${PRJ_NAME} ${SOURCE_FILES} ${HEADER_FILES})
 
 include_directories("${PROJECT_SOURCE_DIR}/libs/Adafruit_BusIO")
