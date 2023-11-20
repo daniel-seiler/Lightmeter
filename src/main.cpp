@@ -13,6 +13,7 @@
 #define POT 3
 #define VIN 5
 #define R 10000
+#define POT_MAX 1023.0
 
 #define SCREEN_ADDRESS 0x3C
 #define SCREEN_WIDTH 128
@@ -23,8 +24,8 @@ Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 uint16_t iso[] = {100, 200, 400, 800, 1600, 3000};
 float fNum[] = {0.5, 0.7, 1.0, 1.4, 2.0, 2.8, 4.0, 5.6, 8.0, 11.0, 16.0,
                 22.0, 32.0, 45.0, 64.0, 90.0, 128.0, 180.0, 256.0};
-float exposureTime[] = {0.00012499, 0.00024999, 0.0004999, 0.0009999, 0.001999, 0.003999, 0.00799,
-                        0.016666666, 0.033333333, 0.066666666, 0.125, 0.25, 0.5,
+float exposureTime[] = {0.00012499, 0.00024999, 0.0004999, 0.0009999, 0.001999, 0.003999,
+                        0.00799,0.016666666, 0.033333333, 0.066666666, 0.125, 0.25, 0.5,
                         1, 2, 4, 8, 15, 30};
 
 struct Device{
@@ -34,6 +35,7 @@ struct Device{
 };
 
 int photoResRawToPhys(int raw);
+int analogToIndex(float analogVal, float analogMax, int arrSize);
 void exposureToString(float exposure, char* buffer);
 void drawScreen(void);
 void drawIso(uint16_t iso);
@@ -87,10 +89,15 @@ void loop() {
 
 int photoResRawToPhys(int raw){
   // Conversion rule
-  float Vout = float(raw) * (VIN / float(1023));// Conversion analog to voltage
+  float Vout = float(raw) * (VIN / POT_MAX);// Conversion analog to voltage
   float RLDR = (R * (VIN - Vout))/Vout; // Conversion voltage to resistance
   int phys=500/(RLDR/1000); // Conversion resitance to lumen
   return phys;
+}
+
+int analogToIndex(float analogVal, float analogMax, int arrSize) {
+    int calculatedIndex = (analogVal <= 0) ? 0 : analogVal / analogMax * arrSize;
+    return (calculatedIndex >= arrSize) ? arrSize - 1 : calculatedIndex;
 }
 
 void exposureToString(float exposure, char* buffer) {
