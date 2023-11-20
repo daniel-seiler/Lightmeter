@@ -28,6 +28,11 @@ float exposureTime[] = {0.00012499, 0.00024999, 0.0004999, 0.0009999, 0.001999, 
                         0.00799,0.016666666, 0.033333333, 0.066666666, 0.125, 0.25, 0.5,
                         1, 2, 4, 8, 15, 30};
 
+enum State {
+    SET_F,
+    SET_T
+};
+
 struct Device{
   int pin;
   int value = 0;
@@ -36,6 +41,7 @@ struct Device{
 
 int photoResRawToPhys(int raw);
 int analogToIndex(float analogVal, float analogMax, int arrSize);
+State changeState(State current);
 void exposureToString(float exposure, char* buffer);
 void drawScreen(void);
 void drawIso(uint16_t iso);
@@ -98,6 +104,14 @@ int photoResRawToPhys(int raw){
 int analogToIndex(float analogVal, float analogMax, int arrSize) {
     int calculatedIndex = (analogVal <= 0) ? 0 : analogVal / analogMax * arrSize;
     return (calculatedIndex >= arrSize) ? arrSize - 1 : calculatedIndex;
+}
+
+State changeState(State currentState) {
+    if (currentState == State::SET_F) {
+        return State::SET_T;
+    } else {
+        return State::SET_F;
+    }
 }
 
 void exposureToString(float exposure, char* buffer) {
