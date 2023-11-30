@@ -10,7 +10,7 @@ execute_process(
 )
 
 file(GLOB_RECURSE SOURCE_FILES src/*.cpp src/*.hpp)
-add_executable(${PRJ_NAME} ${SOURCE_FILES} ${HEADER_FILES})
+add_executable(${PRJ_NAME} ${SOURCE_FILES})
 
 include_directories("${PROJECT_SOURCE_DIR}/libs/Adafruit_BusIO")
 target_link_arduino_libraries(${PRJ_NAME} AUTO_PUBLIC)
