@@ -11,8 +11,8 @@
 # Platform: Arduino AVR Boards
 #!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 # set(ARDUINO_BOARD "Arduino Yn [avr.yun]") # Arduino Yn
-set(ARDUINO_BOARD "Arduino Uno [avr.uno]") # Arduino Uno
-# set(ARDUINO_BOARD "Arduino Uno Mini [avr.unomini]") # Arduino Uno Mini
+set(ARDUINO_BOARD "Arduino UNO [avr.uno]") # Arduino UNO
+# set(ARDUINO_BOARD "Arduino UNO Mini [avr.unomini]") # Arduino UNO Mini
 # set(ARDUINO_BOARD "Arduino Duemilanove or Diecimila [avr.diecimila]") # Arduino Duemilanove or Diecimila
 # set(ARDUINO_BOARD "Arduino Nano [avr.nano]") # Arduino Nano
 # set(ARDUINO_BOARD "Arduino Mega or Mega 2560 [avr.mega]") # Arduino Mega or Mega 2560
@@ -36,7 +36,7 @@ set(ARDUINO_BOARD "Arduino Uno [avr.uno]") # Arduino Uno
 # set(ARDUINO_BOARD "Arduino Yn Mini [avr.yunmini]") # Arduino Yn Mini
 # set(ARDUINO_BOARD "Arduino Industrial 101 [avr.chiwawa]") # Arduino Industrial 101
 # set(ARDUINO_BOARD "Linino One [avr.one]") # Linino One
-# set(ARDUINO_BOARD "Arduino Uno WiFi [avr.unowifi]") # Arduino Uno WiFi
+# set(ARDUINO_BOARD "Arduino UNO WiFi [avr.unowifi]") # Arduino UNO WiFi
 
 #==============================================================================
 # Menu options.
@@ -45,12 +45,12 @@ set(ARDUINO_BOARD "Arduino Uno [avr.uno]") # Arduino Uno
 
 #==============================================================================
 # Menu options.
-# Board: Arduino Uno [avr.uno]
+# Board: Arduino UNO [avr.uno]
 #==============================================================================
 
 #==============================================================================
 # Menu options.
-# Board: Arduino Uno Mini [avr.unomini]
+# Board: Arduino UNO Mini [avr.unomini]
 #==============================================================================
 
 #==============================================================================
@@ -205,7 +205,7 @@ set(ARDUINO_AVR_ATMEGANG_MENU_CPU_ATMEGA168 TRUE) # ATmega168
 
 #==============================================================================
 # Menu options.
-# Board: Arduino Uno WiFi [avr.unowifi]
+# Board: Arduino UNO WiFi [avr.unowifi]
 #==============================================================================
 
 #******************************************************************************

@@ -1,0 +1,22 @@
+{
+  "version": 3,
+  "cmakeMinimumRequired": {"major": 3, "minor": 21, "patch": 0},
+  "configurePresets": [
+    {
+      "name": "uno",
+      "displayName": "Arduino Uno (arduino-cli install)",
+      "generator": "Unix Makefiles",
+      "binaryDir": "${sourceDir}/build",
+      "toolchainFile": "${sourceDir}/libs/Arduino-CMake-Toolchain/Arduino-toolchain.cmake",
+      "cacheVariables": {
+        "ARDUINO_INSTALL_PATH": "${sourceDir}/tools/arduino-ide-shim",
+        "ARDUINO_PACKAGE_PATH": "$env{HOME}/.arduino15",
+        "ARDUINO_SKETCHBOOK_PATH": "$env{HOME}/Arduino"
+      }
+    }
+  ],
+  "buildPresets": [
+    {"name": "uno", "configurePreset": "uno"},
+    {"name": "upload", "configurePreset": "uno", "targets": ["upload-lightmeter"]}
+  ]
+}

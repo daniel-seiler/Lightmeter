@@ -1,11 +1,11 @@
-cmake_minimum_required(VERSION 3.0.0)
+cmake_minimum_required(VERSION 3.12)
 set(PRJ_NAME "lightmeter")
 project(${PRJ_NAME} CXX)
 
-include(FindPythonInterp)
+find_package(Python3 REQUIRED COMPONENTS Interpreter)
 set (py_cmd "scripts/generate_header.py")
 execute_process(
-        COMMAND ${PYTHON_EXECUTABLE} ${py_cmd}
+        COMMAND ${Python3_EXECUTABLE} ${py_cmd}
         WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}
 )
 
