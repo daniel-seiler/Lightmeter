@@ -1,0 +1,16 @@
+{
+  "positions": {
+    "ARROW_TL": [20, 8],
+    "ARROW_BL": [20, 40],
+    "ARROW_TR": [95, 8],
+    "ARROW_BR": [95, 40],
+    "CIRCLE_LEFT": [0, 22],
+    "CIRCLE_RIGHT": [112, 16],
+    "GEAR_RIGHT": [33, 0],
+    "GEAR_LEFT": [71, 0]
+  },
+  "animations": {
+    "gear_right": {"frames": 8, "pivot": [-29, 31.5], "period_deg": 12},
+    "gear_left": {"frames": 8, "pivot": [52, 31.5], "period_deg": -12}
+  }
+}
